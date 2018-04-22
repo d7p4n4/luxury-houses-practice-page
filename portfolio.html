@@ -1,0 +1,1141 @@
+<!doctype html> 
+<html lang="en">
+  <head>
+    <!-- Required meta tags --> 
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+    <!-- Bootstrap CSS --> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+    <!-- font fam -->
+    <link href="https://fonts.googleapis.com/css?family=Iceland|Roboto+Condensed|Roboto+Slab" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>    
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+    <title>Practice page</title> 
+    
+    <link href="reset.css" type="text/css" rel="stylesheet">
+        
+    <!-- main styles -->
+
+    <style>
+      html {
+        font-size: 16px;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+      }
+      
+      @media (min-width: 992px) {
+        html {
+          font-size: 18px;
+        }
+      }
+      
+      @media (min-width: 1800px) {
+        html {
+          font-size: 22px;
+        }
+      }
+    
+     a {
+        text-decoration: none;
+        color: inherit;
+      }
+      
+      a:hover {
+        text-decoration: none;
+        color: inherit;
+      }
+      
+      *,
+      *::after,
+      *::before {
+        box-sizing: border-box;
+      }
+      
+      body {
+        width: 100%;
+        height: auto;
+        background: rgb(55,64,71);
+      }
+      
+      .menu-icon {
+        position: absolute;
+        width: 4rem;
+        height: 7rem;
+        background: rgb(50,52,69);
+        top: 0;
+        right: 0;
+        z-index: 101;
+        overflow: hidden;
+      }
+      
+      .menu-icon {
+        transition: width .3s 2.25s ease, right .3s 2.25s ease, height .5s 1.75s ease;
+      }
+
+      .open {
+        transition: height .5s .3s ease, width .3s ease, right .3s ease;
+      }
+      
+      .menu-icon.open {
+        height: 100%;
+        right: 0;
+        width: 9rem;
+      }
+      
+      .menu-title {
+        font-family: "roboto condensed";
+        text-align: center;
+        text-transform: uppercase;
+        color: white;
+        font-weight: 500;
+      }
+      
+      .trigger-wrap {
+        height: 3rem;
+        width: 100%;
+        position: absolute;
+        background: transparent;
+        bottom: 0;
+        z-index: 10;
+      }
+      
+      .trigger-wrap:hover {
+        cursor: pointer;
+      }
+      
+      .menu-trigger {
+        width: .2rem;
+        height: 2rem;
+        background: rgb(196,167,159);
+        position: absolute;
+        bottom: .75rem;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .menu-trigger::before,
+      .menu-trigger::after {
+        content: '';
+        width: .2rem;
+        height: 1.25rem;
+        background: rgb(196,167,159);
+        position: absolute;
+        transform: translateX(-200%) translateY(-100%);
+        top: 100%;
+        transition: all .5s .3s ease;
+      }
+      
+      .menu-trigger::after {
+        transform: translateX(200%) translateY(-100%);
+      }
+      
+      .open .menu-trigger::before {
+        transform-origin: top center;
+        transform: rotate(35deg);
+        top: 5%;
+        height: 1rem;
+      }
+      
+      .open .menu-trigger::after {
+        transform-origin: top center;
+        transform: rotate(-35deg);
+        top: 5%;
+        height: 1rem;        
+      }
+      
+      .nav-btn {
+        font-family: "roboto condensed";
+        color: rgb(196,167,159);
+        font-size: 1.25rem;
+        text-align: center;
+        padding-bottom: .2rem;
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      .nav-btn {
+        transition: transform .75s 1.5s ease, opacity .75s 1.5s ease;
+      }
+      .nav-btn.sec {
+        transition: transform .75s 1.3s ease, opacity .75s 1.3s ease;
+      }
+      .nav-btn.third {
+        transition: transform .75s 1.1s ease, opacity .75s 1.1s ease;
+      }
+      .nav-btn.fourth {
+        transition: transform .75s .9s ease, opacity .75s .9s ease;
+      }
+      .nav-btn.fifth {
+        transition: transform .75s .7s ease, opacity .75s .7s ease;
+      }
+      
+      .open .nav-btn {
+        transition: transform .75s .5s ease, opacity .75s .5s ease;
+      }
+      .open .nav-btn.sec {
+        transition:  transform .75s .7s ease, opacity .75s .7s ease;
+      }
+      .open .nav-btn.third {
+        transition: transform .75s .9s ease, opacity .75s .9s ease;
+      }
+      .open .nav-btn.fourth {
+        transition: transform .75s 1.1s ease, opacity .75s 1.1s ease;
+      }
+      .open .nav-btn.fifth {
+        transition: transform .75s 1.3s ease, opacity .75s 1.3s ease;
+      }
+      
+      .open .nav-btn {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      
+      .border-bottom {
+        transform: translateX(100%);
+        transition: all .5s cubic-bezier(.56,0,.5,-.8);
+      }
+      
+      .nav-btn:hover + svg .border-bottom {
+        transform: translateX(0);
+      }
+      
+      .nav-btn:hover {
+        color: white;
+        cursor: pointer;
+      }
+      
+      .border-bottom {
+        display: none;
+      }
+      
+      .open .border-bottom {
+        display: block;
+      }
+      
+      .wrapper-1 {
+        opacity: 0;
+        animation: opacity .5s ease;
+        animation-fill-mode: both;
+      }
+      
+      @keyframes opacity {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+      }
+      
+      .hr {
+        width: 100%;
+        height: .1rem;
+        background: rgba(150,150,150,.7);
+        margin: 2rem 0 1rem;
+      }
+      
+      .footer-text {
+        font-family: "roboto slab";
+        font-size: .75rem;
+        color: rgba(150,150,150,.7);
+        text-align: center;
+        text-transform: capitalize;
+        line-height: 1rem;
+      }
+      
+      .footer {
+        position: relative;
+        bottom: 0;
+      }
+
+      .sec-title {
+        font-family: "roboto condensed";
+        color: white;
+        font-size: 1.75rem;
+        text-transform: uppercase;
+        letter-spacing: .1rem;
+        transform: scaleY(.75);
+        font-weight: 600;
+        transition: opacity .5s ease;
+      }
+
+      .text {
+        font-family: "roboto slab";
+        color: rgba(150,150,150,.7);
+        line-height: 1rem;
+        transition: opacity .5s ease;
+        line-height: 1rem;
+      }      
+
+      @media (min-width: 528px) {
+        
+      }
+      
+      @media (min-width: 768px) {
+        body {
+          padding: 2rem 3rem;
+        }
+        
+        .logo-art {
+          height: 2.5rem;
+        }
+        
+        .logo-art::after,
+        .logo-art::before {
+          height: 1.75rem;
+        }
+        
+        .menu-icon {
+          right: 5rem;
+          box-shadow: -5px 0px 20px rgba(0,0,0,.3);          
+        }
+      }
+      
+      @media (min-width: 1200px) {
+        body {
+          padding: 2rem 5rem;
+          width: calc(100% -17px);
+        }
+        
+        .logo-art {
+          height: 2.5rem;
+        }
+        
+        .logo-art::after,
+        .logo-art::before {
+          height: 1.75rem;
+        }
+        
+        .menu-icon {
+          right: 5rem;
+          box-shadow: -5px 0px 20px rgba(0,0,0,.3);          
+        }
+      }
+      
+      @media (min-width: 1800px) {     
+        body {
+          padding: 3rem 7.5vw 2rem;
+        }
+        
+        .menu-icon {
+          right: 7.5vw;
+        }
+        
+        .menu-icon.open {
+          width: calc(4rem + 7.5vw);
+        }
+      }
+      
+      @media (min-width: 2200px) {
+        .menu-icon {
+          width: 5rem;
+          height: 8rem;
+        }
+        
+        .menu-title {
+          font-size: 1.25rem;
+        }
+      }
+      
+      .kitchens .white-wrap,
+      .living-room .white-wrap,
+      .bathrooms .white-wrap {
+        position: relative;
+        width: 100%;
+        height: 15rem;
+        padding: 0 1rem 3rem;
+        background: white;
+        margin-top: 7.5rem;
+      }
+      
+      .pic-infos {
+        width: 100%;
+        height: 125%;
+        background-image: url(assets/pic05.png);
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        top: -25%;
+      }
+      
+      .kitchens .pic-infos {
+        background-image: url(assets/pic06.jpg);
+      }
+      
+      .bathrooms .pic-infos {
+        background-image: url(assets/pic07.jpg);
+      }
+      
+      .title-row {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      }
+      
+      .pic-title {
+        font-family: "roboto condensed";
+        font-size: 2.5rem;
+        letter-spacing: .1rem;
+        transform: scaleY(.75);
+        color: rgb(55,64,71);
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+      
+      .pic-little-title {
+        font-family: "roboto slab";
+        font-size: .85rem;
+        text-transform: capitalize;
+        color: rgb(150,150,150);
+        font-weight: 300;
+      }
+      
+      .white-col {
+        background: white;
+      }
+      
+      .hr-btn,
+      .hr-btn-up {
+        width: 60%;
+        height: 1rem;
+        background: rgb(196,167,159);
+        position: absolute;
+        top: calc(100% - 1.625rem);
+        left: 20%;
+        clip-path: polygon(0 0, 100% 0, 100% .25rem, 0 .25rem);
+        transition: all .5s ease;
+      }
+      
+      .hr-btn-up {
+        clip-path: polygon(0 100%, 0 calc(100% - .25rem), 100% calc(100% - .25rem), 100% 100%);
+        top: calc(100% - 2.5rem);
+      }
+      
+      .living-room-galery:hover .hr-btn-up,
+      .kitchen-galery:hover .hr-btn-up,
+      .bath-galery:hover .hr-btn-up {
+        cursor: pointer;
+        clip-path: polygon(0 100%, 50% 0, 50% 0, 100% 100%);
+        width: 40%;
+        left: 30%;
+      }
+      
+      .white-wrap:hover .hr-btn {
+        cursor: pointer;
+        width: 40%;
+        left: 30%;
+        clip-path: polygon(0 0, 100% 0, 50% 100%, 50% 100%);
+      }
+      
+      .living-room-galery,
+      .kitchen-galery,
+      .bath-galery {
+        width: 100%;
+        padding: 0rem 4rem 3rem;
+        background: white;
+        position: relative;
+        top: 0;
+      }
+      
+      .living-img,
+      .kitchen-img,
+      .bath-img {
+        transition: all .5s ease;
+      }
+      
+      .col-img-rate {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      
+      .col-img-rate:hover .living-img,
+      .col-img-rate:hover .kitchen-img,
+      .col-img-rate:hover .bath-img {
+        opacity: .5;
+        cursor: pointer;
+        transform: scale(.95);
+      }
+      
+      .rate {
+        position: absolute;
+        width: 5rem;
+        height: 5rem;
+        border: .25rem solid rgb(126,97,89);
+        border-radius: 50%;
+        top: 30%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        text-align: center;
+        opacity: 0;
+        transition: all .5s ease;
+      }
+      
+      .rate-num {
+        font-size: 2.5rem;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: "roboto condensed";
+        font-weight: 900;
+        color: rgb(126,97,89);
+        letter-spacing: -.1rem;
+      }
+      
+      .btn-more {
+        width: 7.5rem;
+        height: 2rem;
+        border: solid .2rem rgb(126,97,89);
+        text-align: center;
+        text-transform: uppercase;
+        font-family: "roboto condensed";
+        font-size: 1.25rem;
+        line-height: 1.6rem;
+        color: rgb(126,97,89);
+        font-weight: 900;
+        position: absolute;
+        top: 65%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: all .3s ease;
+      }
+      
+      .btn-more::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: rgb(126,97,89);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        clip-path: polygon(0 100%, 0 100%, 100% 100%, 100% 100%);
+        transition: all .3s cubic-bezier(.56,0,1,1);
+      }
+      
+      .btn-more:hover:before {
+        clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
+      }
+      
+      .btn-more:hover {
+        cursor: pointer;
+        color: rgb(55,64,71);
+      }
+      
+      .stars-row {
+        opacity: 0;
+        transition: all .5s ease;
+      }
+      
+      .col-img-rate:hover .rate,
+      .col-img-rate:hover .stars-row, 
+      .col-img-rate:hover .btn-more {
+        opacity: 1;
+      }
+      
+      @media (min-width: 528px) {
+        .kitchens .white-wrap,
+        .living-room .white-wrap,
+        .bathrooms .white-wrap {
+          padding: 0 3rem 3rem;
+          margin-top: 10rem;
+        }        
+
+        
+        .pic-infos {
+          height: 145%;
+          top: -45%;
+        }
+      }
+      
+      @media (min-width: 768px) {
+        
+      }
+      
+      @media (min-width: 992px) {
+        .text {
+          line-height: 1.4rem;
+        }
+        
+        .kitchens .white-wrap,
+        .living-room .white-wrap,
+        .bathrooms .white-wrap {
+          padding: 0 4rem 3rem;
+          margin-top: 12.5rem;
+        }
+        
+        .pic-infos {
+          height: 165%;
+          top: -65%;
+        }
+        
+        .pic-title {
+          font-size: 3rem;
+        }
+        
+        .pic-little-title {
+          font-size: 1rem;
+        }
+      }
+      
+      @media (min-width: 1200px) {
+        
+        .kitchens .white-wrap,
+        .living-room .white-wrap,
+        .bathrooms .white-wrap {
+          padding: 0 5rem 3rem;
+          margin-top: 15rem;
+        }
+        
+        .pic-infos {
+          height: 175%;
+          top: -75%;
+        }
+        
+        .pic-little-title {
+          font-size: 1rem;
+        }
+        
+        .living-room-galery,
+        .kitchen-galery,
+        .bath-galery {
+          padding: 0 5rem 3rem;
+        }
+      }
+      
+      @media (min-width: 1440px) {
+        body {
+          padding: 3rem 5vw 2rem;
+        }
+        
+        .kitchens .white-wrap,
+        .living-room .white-wrap,
+        .bathrooms .white-wrap {
+          padding: 0 6.5rem 3rem;
+          margin-top: 15rem;
+        }
+        
+        .living-room-galery,
+        .kitchen-galery,
+        .bath-galery {
+          padding: 0 6.5rem 3rem;
+        }
+      }
+
+      @media (min-width: 1800px) {
+        .kitchens .white-wrap,
+        .living-room .white-wrap,
+        .bathrooms .white-wrap {
+          padding: 0 7.5rem 3rem;
+          margin-top: 15rem;
+        }
+        
+        .living-room-galery,
+        .kitchen-galery,
+        .bath-galery {
+          padding: 0 7.5rem 3rem;
+        }
+      }
+
+      @media (min-width: 2200px) {
+        body {
+          padding: 3rem 15vw 2rem;
+        }
+        
+        .kitchens .white-wrap,
+        .living-room .white-wrap,
+        .bathrooms .white-wrap {
+          padding: 0 9rem 3rem;
+          margin-top: 15rem;
+        }
+        
+        .living-room-galery,
+        .kitchen-galery,
+        .bath-galery {
+          padding: 0 8rem 3rem;
+        }
+        
+        .sec-title {
+          font-size: 2.25rem;
+        }
+        
+        .text {
+          font-size: 1.15rem;
+          line-height: 1.6rem;
+        }
+        
+        .pic-title {
+          font-size: 3.5rem;
+        }
+        
+        .pic-little-title {
+          font-size: 1.15rem;
+        }
+      }
+      
+      .row {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      
+    </style>
+  </head>
+  <body>
+
+      <div class="menu-icon">
+        <div class="row mt-4">
+          <div class="col-12 p-0">
+            <h4 class="menu-title">menu</h4>
+          </div>
+        </div>
+        
+        <div class="row mt-5">
+          <div class="col-12">
+            <a href="index.html" class="nav-btn"><p class="nav-btn home">Home</p></a>
+            <svg class="bottom-svg" height="2rem" width="100%">
+              <line class="border-bottom" x1="15%" x2="85%" y="100%" stroke-width=".3rem" stroke="white"></line>
+            </svg>
+          </div>
+          <div class="col-12">
+            <p class="nav-btn sec">About</p>
+            <svg class="bottom-svg" height="2rem" width="100%">
+              <line class="border-bottom" x1="15%" x2="85%" y="100%" stroke-width=".3rem" stroke="white"></line>
+            </svg>
+          </div>
+          <div class="col-12">
+            <p class="nav-btn third">Portfolio</p>
+            <svg class="bottom-svg" height="2rem" width="100%">
+              <line class="border-bottom" x1="15%" x2="85%" y="100%" stroke-width=".3rem" stroke="white"></line>
+            </svg>
+          </div>
+          <div class="col-12">
+            <p class="nav-btn fourth">Projects</p>
+            <svg class="bottom-svg" height="2rem" width="100%">
+              <line class="border-bottom" x1="15%" x2="85%" y="100%" stroke-width=".3rem" stroke="white"></line>
+            </svg>
+          </div>
+          <div class="col-12">
+            <p class="nav-btn fifth">Contact</p>
+            <svg class="bottom-svg" height="2rem" width="100%">
+              <line class="border-bottom" x1="15%" x2="85%" y="100%" stroke-width=".3rem" stroke="white"></line>
+            </svg>
+          </div>
+        </div>
+        <div class="trigger-wrap">
+          <div class="menu-trigger"></div>
+        </div>
+      </div>
+    
+    <div class="wrapper-1">
+      <div class="row justify-content-center mt-5 ml-4 mr-5 pr-4 m-md-0 p-md-0 pr-md-5 pr-lg-0">
+      <div class="col-12 col-lg-7 my-auto p-0 p-md-3">
+        <h3 class="sec-title mb-2">the portfolio</h3>
+        <p class="text pr-md-5 pr-lg-0">Sed ad nibh labores offendit. Reque dolorem partiendo eos ad, vix ei quidam incorrupte. Quando facilisi erroribus nam ea, senserit splendide vim in. Ei usu tota brute, per facer eripuit an. Diam adipiscing scripserit sea ex, alii nostrud accusata ut pri. Docendi moderatius at usu, sale dicunt ea usu. Ex eos liber eleifend, tale zril te mei.</p>
+      </div>
+      <div  class="col-12">
+        <div class="hr"></div>
+      </div>        
+    </div>
+      
+      <div class="living-room">
+        <div class="white-wrap">
+          <div class="pic-infos">
+            <div class="row justify-content-start title-row m-0 m-0">
+              <div class="col-10 col-md-8 col-xl-7 white-col pt-3 pl-3 pr-3 pl-md-5 pr-md-5">
+                <h3 class="pic-title">living-rooms</h3>
+                <h6 class="pic-little-title">all about the places where you watch Tv.</h6>
+              </div>
+            </div>
+          </div>
+          <div class="hr-btn hr-btn-living"></div>
+        </div>
+      </div>
+      <div class="living-room-galery">
+        <div class="row justify-content-center">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid living-img" alt="" src="assets/living01,.jpg"/>
+            <div class="rate">
+              <p class="rate-num">4,5</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/half-star.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid living-img" alt=""  src="assets/living02.png"/>
+            <div class="rate">
+              <p class="rate-num">4,8</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/five-star.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid living-img" alt=""  src="assets/living03.jpg"/>
+            <div class="rate">
+              <p class="rate-num">4,3</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/half-star.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid living-img" alt=""  src="assets/living04.jpg"/>
+            <div class="rate">
+              <p class="rate-num">5</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/five-star.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid living-img" alt=""  src="assets/living05.jpg"/>
+            <div class="rate">
+              <p class="rate-num">4,9</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/five-star.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid living-img" alt=""  src="assets/living06.png"/>
+            <div class="rate">
+              <p class="rate-num">5</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/five-star.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid living-img" alt=""  src="assets/living07.jpg"/>
+            <div class="rate">
+              <p class="rate-num">5</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/five-star.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid living-img" alt=""  src="assets/living08.jpg"/>
+            <div class="rate">
+              <p class="rate-num">4,7</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/half-star.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hr-btn-up-living hr-btn-up"></div>
+      </div>
+      
+      <div class="kitchens">
+        <div class="white-wrap">
+          <div class="pic-infos">
+            <div class="row justify-content-start title-row m-0 m-0">
+              <div class="col-10 col-md-8 col-xl-7 white-col pt-3 pl-3 pr-3 pl-md-5 pr-md-5">
+                <h3 class="pic-title">kitchens</h3>
+                <h6 class="pic-little-title">home of your foods.</h6>
+              </div>
+            </div>
+          </div>
+          <div class="hr-btn hr-btn-kitchen"></div>
+        </div>
+      </div>
+      <div class="kitchen-galery">
+        <div class="row justify-content-center">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid kitchen-img" alt="" src="assets/kitchen01.jpg"/>
+            <div class="rate">
+              <p class="rate-num">4,5</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/half-star.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid kitchen-img" alt=""  src="assets/kitchen02.jpeg"/>
+            <div class="rate">
+              <p class="rate-num">4,6</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/five-star.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid kitchen-img" alt=""  src="assets/kitchen03.jpg"/>
+            <div class="rate">
+              <p class="rate-num">4,4</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/half-star.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid kitchen-img" alt=""  src="assets/kitchen04.jpg"/>
+            <div class="rate">
+              <p class="rate-num">4,8</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/five-star.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid kitchen-img" alt=""  src="assets/kitchen05.jpg"/>
+            <div class="rate">
+              <p class="rate-num">4,9</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/five-star.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid kitchen-img" alt=""  src="assets/kitchen06.jpg"/>
+            <div class="rate">
+              <p class="rate-num">5</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/five-star.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid kitchen-img" alt=""  src="assets/kitchen07.jpg"/>
+            <div class="rate">
+              <p class="rate-num">4,8</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/five-star.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid kitchen-img" alt=""  src="assets/kitchen08.jpg"/>
+            <div class="rate">
+              <p class="rate-num">4,3</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/half-star.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hr-btn-up-kitchen hr-btn-up"></div>
+      </div>
+      
+      <div class="bathrooms">
+        <div class="white-wrap">
+          <div class="pic-infos">
+            <div class="row justify-content-start title-row m-0 m-0">
+              <div class="col-10 col-md-8 col-xl-7 white-col pt-3 pl-3 pr-3 pl-md-5 pr-md-5">
+                <h3 class="pic-title">bathrooms</h3>
+                <h6 class="pic-little-title">where your day starts.</h6>
+              </div>
+            </div>
+          </div>
+          <div class="hr-btn hr-btn-bath"></div>
+        </div>
+      </div>
+      <div class="bath-galery">
+        <div class="row justify-content-center">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid bath-img" alt="" src="assets/bath01.jpg"/>
+            <div class="rate">
+              <p class="rate-num">4,2</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/half-star.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid bath-img" alt=""  src="assets/bath02.jpg"/>
+            <div class="rate">
+              <p class="rate-num">4,8</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/five-star.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid bath-img" alt=""  src="assets/bath03.jpg"/>
+            <div class="rate">
+              <p class="rate-num">4,4</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/half-star.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid bath-img" alt=""  src="assets/bath04.jpg"/>
+            <div class="rate">
+              <p class="rate-num">4,9</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/five-star.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid bath-img" alt=""  src="assets/bath05.jpg"/>
+            <div class="rate">
+              <p class="rate-num">4,9</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/five-star.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid bath-img" alt=""  src="assets/bath06.jpg"/>
+            <div class="rate">
+              <p class="rate-num">5</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/five-star.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid bath-img" alt=""  src="assets/bath07.jpeg"/>
+            <div class="rate">
+              <p class="rate-num">4,9</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/five-star.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 col-img-rate">
+            <img class="img-fluid bath-img" alt=""  src="assets/bath08.jpg"/>
+            <div class="rate">
+              <p class="rate-num">4,4</p>
+            </div>
+            <div class="btn-more">more</div>
+            <div class="row justify-content-center stars-row">
+              <div class="col-6">
+                <img class="img-fluid" src="assets/half-star.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hr-btn-up-bath hr-btn-up"></div>
+      </div>
+      
+      <div class="row justify-content-center footer">
+        <div class="col-12">
+          <div class="hr"></div>
+          <p class="footer-text">Copyright &copy; 2018- <br>All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+   
+    <script>
+      window.onload = function() {
+        $('.trigger-wrap').on("click", function() {
+          if ($(".menu-icon").hasClass("open")) {
+            $(".menu-icon").removeClass("open");
+          } else {
+            $(".menu-icon").addClass('open');
+          }
+        });
+        
+        
+        $(".living-room-galery").toggle();
+        $(".hr-btn-up-living").on("click", function() {
+          $(".living-room-galery").slideUp(1000);
+        });
+        $(".hr-btn-living").on("click", function() {
+          $(".living-room-galery").slideDown(1000);
+        });
+        
+        $(".kitchen-galery").toggle();
+        $(".hr-btn-up-kitchen").on("click", function() {
+          $(".kitchen-galery").slideUp(1000);
+        });
+        $(".hr-btn-kitchen").on("click", function() {
+          $(".kitchen-galery").slideDown(1000);
+        });
+     
+        $(".bath-galery").toggle();
+        $(".hr-btn-up-bath").on("click", function() {
+          $(".bath-galery").slideUp(1000);
+        });
+        $(".hr-btn-bath").on("click", function() {
+          $(".bath-galery").slideDown(1000);
+        });
+
+      }
+   </script>
+    
+    <!-- Optional JavaScript --> 
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+
+  </body> 
+</html>

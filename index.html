@@ -541,6 +541,7 @@
         top: 0;
         left: 0;
         height: auto;
+        overflow: hidden;
       }
       
       .borders-wrap {
@@ -574,12 +575,14 @@
         letter-spacing: .1rem;
         transform: scaleY(.75);
         font-weight: 600;
+        transition: opacity .5s ease;
       }
       
       .text {
         font-family: "roboto slab";
         color: rgba(150,150,150,.7);
         line-height: 1rem;
+        transition: opacity .5s ease;
       }      
       
       .white-wrap {
@@ -617,6 +620,7 @@
         left: 0;
         background: white;
         padding: 3rem 1.5rem;
+        transition: width .5s cubic-bezier(.56,0,1,1), padding-left .5s cubic-bezier(.56,0,1,1), left 1.5s ease;
       }
       
       .portfolio-wrap .sec-title {
@@ -639,6 +643,7 @@
         max-height: 8rem;
         max-width: 8rem;
         transform: translateY(-50%);
+        transition: opacity .5s ease;
       }
       
       .wrapper-2 .down-arr-wrap::before {
@@ -830,6 +835,33 @@
         }
       }
       
+      .portfolio-wrap.open {
+        width: 85%;
+        padding-left: calc(1.5rem + 25%);
+        left: 100%;
+      }
+      
+      .portfolio-wrap.open .text,
+      .portfolio-wrap.open .sec-title,
+      .portfolio-wrap.open .down-arr-wrap {
+        opacity: 0;
+      }
+      
+      .wrapper-side {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        background: rgb(55,64,71);
+        top: 0;
+        left: -100%;
+        transition: all 1.5s ease;
+      }
+      
+      .wrapper-side.open {
+        left: 0;
+      }
+      
       .row {
         margin-left: 0;
         margin-right: 0;
@@ -860,7 +892,7 @@
             </svg>
           </div>
           <div class="col-12">
-            <p class="nav-btn third">Portfolio</p>
+            <a class="nav-btn" href="portfolio.html"><p class="nav-btn third">Portfolio</p></a>
             <svg class="bottom-svg" height="2rem" width="100%">
               <line class="border-bottom" x1="15%" x2="85%" y="100%" stroke-width=".3rem" stroke="white"></line>
             </svg>
@@ -935,6 +967,7 @@
     </header>
     
     <div class="wrapper-2">
+    <div class="wrapper-side"></div>
       <div class="borders-wrap">
         <img class="img-fluid borders" src="assets/borders.png" alt="">
         <div class="row justify-content-center expertise-row pl-2 pr-5 mr-5">
@@ -947,7 +980,7 @@
       
       <div class="white-wrap">
         <div class="portfolio">
-          <div class="portfolio-wrap">
+          <div class="portfolio-wrap portfolio-moving">
             <div class="row justify-content-start pl-0 ml-0 pl-md-4 ml-md-4 pl-lg-5 ml-lg-5">
               <div class="col-10 col-lg-8 pl-0">
                 <h3 class="sec-title mb-3">the portfolio</h3>
@@ -1099,6 +1132,14 @@
         })
         $(".circle-fourth").on("mouseenter", function() {
           $(".down-arr-wrap-fourth").addClass("hover");
+        })
+        
+        $(".circle-sec").on("click", function() {
+          $(".portfolio-moving").addClass("open");
+          $(".wrapper-side").addClass("open");
+          setTimeout(function() {
+            window.location.href = "file:///D:/weblap/Brackets/luxury-houses-practice-page/portfolio.html";
+          }, 1300);
         })
 
       function noscroll() {

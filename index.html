@@ -542,6 +542,11 @@
         left: 0;
         height: auto;
         overflow: hidden;
+        display: none;
+      }
+      
+      .wrapper-2.open {
+        display: block;
       }
       
       .borders-wrap {
@@ -880,7 +885,7 @@
         
         <div class="row mt-5">
           <div class="col-12">
-            <p class="nav-btn home">Home</p>
+            <a class="nav-btn" href="index.html"><p class="nav-btn home">Home</p></a>
             <svg class="bottom-svg" height="2rem" width="100%">
               <line class="border-bottom" x1="15%" x2="85%" y="100%" stroke-width=".3rem" stroke="white"></line>
             </svg>
@@ -898,13 +903,13 @@
             </svg>
           </div>
           <div class="col-12">
-            <p class="nav-btn fourth">Projects</p>
+            <a href="projects.html" class="nav-btn"><p class="nav-btn fourth">Projects</p></a>
             <svg class="bottom-svg" height="2rem" width="100%">
               <line class="border-bottom" x1="15%" x2="85%" y="100%" stroke-width=".3rem" stroke="white"></line>
             </svg>
           </div>
           <div class="col-12">
-            <p class="nav-btn fifth">Contact</p>
+            <a class="nav-btn" href="contact.html"><p class="nav-btn fifth">Contact</p></a>
             <svg class="bottom-svg" height="2rem" width="100%">
               <line class="border-bottom" x1="15%" x2="85%" y="100%" stroke-width=".3rem" stroke="white"></line>
             </svg>
@@ -980,11 +985,11 @@
       
       <div class="white-wrap">
         <div class="portfolio">
-          <div class="portfolio-wrap portfolio-moving">
+          <div class="portfolio-wrap">
             <div class="row justify-content-start pl-0 ml-0 pl-md-4 ml-md-4 pl-lg-5 ml-lg-5">
               <div class="col-10 col-lg-8 pl-0">
-                <h3 class="sec-title mb-3">the portfolio</h3>
-                <h5 class="text">completed builds</h5>
+                <h3 class="sec-title mb-3">about us</h3>
+                <h5 class="text">our theme, and our passionate</h5>
               </div>
               <div class="down-arr-wrap down-arr-wrap-sec">
                 <svg class="down-arr-circle" height="100%" width="100%">
@@ -1013,11 +1018,11 @@
           </div>
         </div>
         <div class="portfolio portfolio02">
-          <div class="portfolio-wrap">
+          <div class="portfolio-wrap portfolio-moving">
             <div class="row justify-content-start pl-0 ml-0 pl-md-4 ml-md-4 pl-lg-5 ml-lg-5">
               <div class="col-10 col-lg-8 pl-0">
-                <h3 class="sec-title mb-3">the projects</h3>
-                <h5 class="text">current developments</h5>
+                <h3 class="sec-title mb-3">the portfolio</h3>
+                <h5 class="text">completed builds</h5>
               </div>
               <div class="down-arr-wrap down-arr-wrap-third">
                 <svg class="down-arr-circle" height="100%" width="100%">
@@ -1046,11 +1051,11 @@
           </div>
         </div>
         <div class="portfolio portfolio03">
-          <div class="portfolio-wrap">
+          <div class="portfolio-wrap projects-moving">
             <div class="row justify-content-start pl-0 ml-0 pl-md-4 ml-md-4 pl-lg-5 ml-lg-5">
               <div class="col-10 col-lg-8 pl-0">
-                <h3 class="sec-title mb-3">the property avatar</h3>
-                <h5 class="text">educational problem</h5>
+                <h3 class="sec-title mb-3">the projects</h3>
+                <h5 class="text">current developments</h5>
               </div>
               <div class="down-arr-wrap down-arr-wrap-fourth">
                 <svg class="down-arr-circle" height="100%" width="100%">
@@ -1106,11 +1111,13 @@
         
         $(".home").on("click", function() {
           $("header").removeClass("hide");
-          window.addEventListener("scroll", noscroll);
+          setTimeout(function() {
+            $(".wrapper-2").removeClass("open");
+          }, 750);
         })
         $(".circle-first, down-arr").on('click', function() {
           $("header").addClass("hide");
-          window.removeEventListener("scroll", noscroll);
+          $(".wrapper-2").addClass("open");
         })
 
         $(".circle-sec").on("mouseleave", function() {
@@ -1134,14 +1141,22 @@
           $(".down-arr-wrap-fourth").addClass("hover");
         })
         
-        $(".circle-sec").on("click", function() {
+        $(".circle-third").on("click", function() {
           $(".portfolio-moving").addClass("open");
           $(".wrapper-side").addClass("open");
           setTimeout(function() {
             window.location.href = "file:///D:/weblap/Brackets/luxury-houses-practice-page/portfolio.html";
           }, 1300);
-        })
-
+        });
+        
+        $(".circle-fourth").on("click", function() {
+          $(".projects-moving").addClass("open");
+          $(".wrapper-side").addClass("open");
+          setTimeout(function() {
+            window.location.href = "file:///D:/weblap/Brackets/luxury-houses-practice-page/projects.html";
+          }, 1300);
+        });
+/*
       function noscroll() {
         window.scrollTo(0,0);
       }
@@ -1150,7 +1165,7 @@
       document.body.scrollTop = document.documentElement.scrollTop = 0;
         
       // disable scrolling 
-      window.addEventListener('scroll', noscroll);
+      window.addEventListener('scroll', noscroll);*/
       }
     </script>
     

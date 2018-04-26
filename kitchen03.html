@@ -1,0 +1,583 @@
+<!doctype html> 
+<html lang="en">
+  <head>
+    <!-- Required meta tags --> 
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+    <!-- Bootstrap CSS --> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+    <!-- font fam -->
+    <link href="https://fonts.googleapis.com/css?family=Iceland|Roboto+Condensed|Roboto+Slab" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>    
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+    <title>Practice page</title> 
+    
+    <link href="reset.css" type="text/css" rel="stylesheet">
+        
+    <!-- main styles -->
+
+    <style>
+      html {
+        font-size: 16px;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+      }
+      
+      @media (min-width: 992px) {
+        html {
+          font-size: 18px;
+        }
+      }
+      
+      @media (min-width: 1800px) {
+        html {
+          font-size: 22px;
+        }
+      }
+    
+     a {
+        text-decoration: none;
+        color: inherit;
+      }
+      
+      a:hover {
+        text-decoration: none;
+        color: inherit;
+      }
+      
+      *,
+      *::after,
+      *::before {
+        box-sizing: border-box;
+      }
+      
+      body {
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        background: rgb(210,210,210);
+        padding: 2rem 1rem 2rem;
+      }
+            
+      .logo {
+        text-transform: uppercase;
+        color: rgb(157,157,157);
+        font-size: 2rem;
+        font-family: iceland;
+      }
+            
+      .logo-art {
+        position: relative;
+        display: inline-block;
+        width: .2rem;
+        height: 2rem;
+        background: rgb(157,157,157);
+        overflow: visible;
+        margin: 0 .5rem;
+      }
+      
+      .logo-art::before,
+      .logo-art::after {
+        content: '';
+        position: absolute;
+        width: .2rem;
+        height: 1.5rem;
+        background: rgb(157,157,157);
+        transform: translateX(-175%);
+        z-index: 2;
+        bottom: 0;
+      }
+      
+      .logo-art::after {
+        transform: translateX(175%);
+      }
+      
+      .menu-icon {
+        position: absolute;
+        width: 4rem;
+        height: 7rem;
+        background: rgb(50,52,69);
+        top: 0;
+        right: 0;
+        z-index: 101;
+        overflow: hidden;
+      }
+      
+      .menu-icon {
+        transition: width .3s 2.25s ease, right .3s 2.25s ease, height .5s 1.75s ease;
+      }
+
+      .open {
+        transition: height .5s .3s ease, width .3s ease, right .3s ease;
+      }
+      
+      .menu-icon.open {
+        height: 100%;
+        right: 0;
+        width: 9rem;
+      }
+      
+      .menu-title {
+        font-family: "roboto condensed";
+        text-align: center;
+        text-transform: uppercase;
+        color: white;
+        font-weight: 500;
+      }
+      
+      .trigger-wrap {
+        height: 3rem;
+        width: 100%;
+        position: absolute;
+        background: transparent;
+        bottom: 0;
+        z-index: 10;
+      }
+      
+      .trigger-wrap:hover {
+        cursor: pointer;
+      }
+      
+      .menu-trigger {
+        width: .2rem;
+        height: 2rem;
+        background: rgb(196,167,159);
+        position: absolute;
+        bottom: .75rem;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .menu-trigger::before,
+      .menu-trigger::after {
+        content: '';
+        width: .2rem;
+        height: 1.25rem;
+        background: rgb(196,167,159);
+        position: absolute;
+        transform: translateX(-200%) translateY(-100%);
+        top: 100%;
+        transition: all .5s .3s ease;
+      }
+      
+      .menu-trigger::after {
+        transform: translateX(200%) translateY(-100%);
+      }
+      
+      .open .menu-trigger::before {
+        transform-origin: top center;
+        transform: rotate(35deg);
+        top: 5%;
+        height: 1rem;
+      }
+      
+      .open .menu-trigger::after {
+        transform-origin: top center;
+        transform: rotate(-35deg);
+        top: 5%;
+        height: 1rem;        
+      }
+      
+      .nav-btn {
+        font-family: "roboto condensed";
+        color: rgb(196,167,159);
+        font-size: 1.25rem;
+        text-align: center;
+        padding-bottom: .2rem;
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      .nav-btn {
+        transition: transform .75s 1.5s ease, opacity .75s 1.5s ease;
+      }
+      .nav-btn.sec {
+        transition: transform .75s 1.3s ease, opacity .75s 1.3s ease;
+      }
+      .nav-btn.third {
+        transition: transform .75s 1.1s ease, opacity .75s 1.1s ease;
+      }
+      .nav-btn.fourth {
+        transition: transform .75s .9s ease, opacity .75s .9s ease;
+      }
+      .nav-btn.fifth {
+        transition: transform .75s .7s ease, opacity .75s .7s ease;
+      }
+      
+      .open .nav-btn {
+        transition: transform .75s .5s ease, opacity .75s .5s ease;
+      }
+      .open .nav-btn.sec {
+        transition:  transform .75s .7s ease, opacity .75s .7s ease;
+      }
+      .open .nav-btn.third {
+        transition: transform .75s .9s ease, opacity .75s .9s ease;
+      }
+      .open .nav-btn.fourth {
+        transition: transform .75s 1.1s ease, opacity .75s 1.1s ease;
+      }
+      .open .nav-btn.fifth {
+        transition: transform .75s 1.3s ease, opacity .75s 1.3s ease;
+      }
+      
+      .open .nav-btn {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      
+      .border-bottom {
+        transform: translateX(100%);
+        transition: all .5s cubic-bezier(.56,0,.5,-.8);
+      }
+      
+      .nav-btn:hover + svg .border-bottom {
+        transform: translateX(0);
+      }
+      
+      .nav-btn:hover {
+        color: white;
+        cursor: pointer;
+      }
+      
+      .border-bottom {
+        display: none;
+      }
+      
+      .open .border-bottom {
+        display: block;
+      }
+      
+      @media (min-width: 528px) {
+
+      }
+      
+      @media (min-width: 768px) {
+        body {
+          padding: 2rem 3rem;
+        }
+        
+        .logo {
+          font-size: 2.5rem;
+        }
+        
+        .logo-art {
+          height: 2.5rem;
+        }
+        
+        .logo-art::after,
+        .logo-art::before {
+          height: 1.75rem;
+        }
+        
+        .menu-icon {
+          right: 5rem;
+          box-shadow: -5px 0px 20px rgba(0,0,0,.3);          
+        }
+      }
+      
+      @media (min-width: 1200px) {
+        body {
+          padding: 2rem 5rem;
+          width: calc(100% -17px);
+        }
+        
+        .logo {
+          font-size: 2.5rem;
+        }
+        
+        .logo-art {
+          height: 2.5rem;
+        }
+        
+        .logo-art::after,
+        .logo-art::before {
+          height: 1.75rem;
+        }
+        
+        .menu-icon {
+          right: 5rem;
+          box-shadow: -5px 0px 20px rgba(0,0,0,.3);          
+        }
+        
+        .empty-row {
+          display: flex;
+        }
+      }
+      
+      @media (min-width: 1800px) {
+        body {
+          padding: 3rem 7.5%;
+        }
+        
+        .menu-icon {
+          right: 7.5vw;
+        }
+        
+        .menu-icon.open {
+          width: calc(4rem + 7.5vw);
+        }
+      }
+      
+      @media (min-width: 2200px) {
+        body {
+          padding: 5rem 15%;
+        }
+
+        .menu-icon {
+          width: 5rem;
+          height: 8rem;
+        }
+        
+        .menu-title {
+          font-size: 1.25rem;
+        }
+      }
+      
+      .white-wrap {
+        position: relative;
+        padding: 2rem 1rem;
+        background: white;
+        margin-top: 4rem;
+        width: 100%;
+        top: -3rem;
+      }
+      
+      .contact-text {
+        font-size: 2rem;
+        text-transform: uppercase;
+        color: rgb(50,52,69);
+        font-family: "roboto condensed";
+        letter-spacing: .1rem;
+        font-weight: 600;
+        transform: scaleY(.75);
+      }
+      
+      .sec-title {
+        font-size: 1.75rem;
+      }
+      
+      .features-img {
+        position: relative;
+        top: 3rem;
+        width: 100%;
+        max-width: 20rem;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .stars-img {
+        top: -3rem;
+        max-width: 12.5rem;
+      }
+      
+      @media (min-width: 768px) {
+        .features-img {
+          left: 100%;
+          transform: translateX(-100%);
+        }
+        
+        .stars-img {
+          top: -1rem;
+        }
+      }
+
+      .text {
+        font-family: "roboto slab";
+        color: rgba(150,150,150,.7);
+        line-height: 1rem;
+        font-size: .85rem;
+      }    
+      
+      li {
+        margin-top: 1rem;
+      }
+      
+      ul {
+        list-style: url(assets/list-style.png);
+        list-style-position: outside;
+        margin-left: 1.5rem
+      }
+      
+      @media (min-width: 528px) {
+        .white-wrap {
+          padding: 3rem 2.5rem;
+        }
+      }
+      
+      @media (min-width: 768px) {
+        .text {
+          line-height: 1.2rem;
+        }
+      }
+      
+      @media (min-width: 1200px) {
+        .white-wrap {
+          padding: 4rem 3rem;
+        }
+        
+        .text {
+          font-size: 1rem;
+          line-height: 1.4rem;
+        }
+      }
+      
+      .hr {
+        width: 100%;
+        height: .1rem;
+        background: rgba(150,150,150,.7);
+      }
+      
+      .footer-text {
+        font-family: "roboto slab";
+        font-size: .75rem;
+        color: rgba(150,150,150,.7);
+        text-align: center;
+        text-transform: capitalize;
+        line-height: 1rem;
+      }
+      
+      .stars {
+        font-family: "roboto condensed";
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: rgb(203,157,129);
+        letter-spacing: -.1rem;
+      }
+
+      .row {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      
+    </style>
+  </head>
+  <body>
+          
+      <div class="menu-icon">
+        <div class="row mt-4">
+          <div class="col-12 p-0">
+            <h4 class="menu-title">menu</h4>
+          </div>
+        </div>
+        
+        <div class="row mt-5">
+          <div class="col-12">
+            <a class="nav-btn" href="index.html"><p class="nav-btn home">Home</p></a>
+            <svg class="bottom-svg" height="2rem" width="100%">
+              <line class="border-bottom" x1="15%" x2="85%" y="100%" stroke-width=".3rem" stroke="white"></line>
+            </svg>
+          </div>
+          <div class="col-12">
+            <a class="nav-btn" href="about.html"><p class="nav-btn sec">About</p></a>
+            <svg class="bottom-svg" height="2rem" width="100%">
+              <line class="border-bottom" x1="15%" x2="85%" y="100%" stroke-width=".3rem" stroke="white"></line>
+            </svg>
+          </div>
+          <div class="col-12">
+            <a class="nav-btn" href="portfolio.html"><p class="nav-btn third">Portfolio</p></a>
+            <svg class="bottom-svg" height="2rem" width="100%">
+              <line class="border-bottom" x1="15%" x2="85%" y="100%" stroke-width=".3rem" stroke="white"></line>
+            </svg>
+          </div>
+          <div class="col-12">
+            <a href="projects.html" class="nav-btn"><p class="nav-btn fourth">Projects</p></a>
+            <svg class="bottom-svg" height="2rem" width="100%">
+              <line class="border-bottom" x1="15%" x2="85%" y="100%" stroke-width=".3rem" stroke="white"></line>
+            </svg>
+          </div>
+          <div class="col-12">
+            <a class="nav-btn" href="contact.html"><p class="nav-btn fifth">Contact</p></a>
+            <svg class="bottom-svg" height="2rem" width="100%">
+              <line class="border-bottom" x1="15%" x2="85%" y="100%" stroke-width=".3rem" stroke="white"></line>
+            </svg>
+          </div>
+        </div>
+        <div class="trigger-wrap">
+          <div class="menu-trigger"></div>
+        </div>
+      </div>
+    
+      <div class="row p-0 m-0">
+        <div class="col-10 col-md-8 col-xl-4 p-0 m-0">
+          <h3 class="logo">RJ <div class="logo-art"></div> INVESTMENTS</h3>
+        </div>
+        <div class="col-10 p-0 m-0">
+          <div class="hr mt-2"></div>
+        </div>
+      </div>
+    
+    <div class="row justify-content-center mt-5 mb-0 pb-0">
+      <div class="col-12 col-md-5 col-lg-3 mb-0 pb-0">
+        <h3 class="contact-text">property details</h3>
+      </div>
+      <div class="col-md-7 col-lg-5 empty-col"></div>
+    </div>
+    
+    <div class="row justify-content-center">
+      <div class="col-10 col-md-5 col-lg-3 pr-md-0 mr-md-0">
+        <img class="img-fluid features-img pt-3" src="assets/kitchen03.jpg" alt="">
+      </div>
+      <div class="col-11 col-sm-9 col-md-7 col-lg-5 pl-md-0 ml-md-0">
+        <div class="white-wrap">
+          <h3 class="contact-text sec-title pb-3">features</h3>
+          <ul>
+            <li class="text">Ad sea sonet vidisse</li>
+            <li class="text">Cu has ridens nostro tacimates, eam ea paulo sanctus</li>
+            <li class="text">Mei eu quem impedit</li>
+            <li class="text">Sed veniam nusquam invidunt te</li>
+            <li class="text">Vim omnis principes instructior an</li>
+            <li class="text">Augue impedit percipit ut mei, tempor argumentum eum at</li>
+            <li class="text">Feugait tractatos pri ne</li>
+            <li class="text">Prompta meliore expetenda at his</li>
+            <li class="text">Sale nominati id eam</li>
+            <li class="text">Laudem mediocrem definitiones nam ne</li>
+            <li class="text">Nonumy vituperatoribus ei his, ius at augue possim sensibus</li>
+            <li class="text">Labitur adolescens expetendis ad vim</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-11 col-sm-9 col-md-7 col-lg-5 pr-0 pl-0 mr-md-0 mt-0" style="position: relative; top: -3rem;">
+        <div class="white-wrap" style="margin-top: 0;">
+          <h3 class="contact-text sec-title mb-2">review</h3>
+          <h4 class="stars mb-4">stars: 4,4</h4>
+          <p class="text">Cu his putent mandamus comprehensam. Ea qui cetero perpetua. Eam in sale signiferumque, nullam inimicus reprimique vim ei. Vix hinc movet nostrum in. Aeque senserit ne vis, ex discere blandit mel.
+<br><br>
+Ex vis enim dolore constituam. Copiosae interpretaris cum no, usu et aliquam deseruisse, has meis porro offendit ad. Et invenire moderatius eos. Vix in summo oblique, cu usu legere deleniti.</p>
+        </div>
+      </div>
+      <div class="col-10 col-md-5 col-lg-3 pr-4 pl-4">
+        <img class="img-fluid features-img stars-img pl-4 pr-4" src="assets/half-star-light.png" alt="">
+      </div>
+    </div>
+
+      <div class="row justify-content-center footer">
+        <div class="col-12">
+          <div class="hr"></div>
+          <p class="footer-text mt-3">Copyright &copy; 2018- <br>All rights reserved.</p>
+        </div>
+      </div>    
+
+    <script>
+      window.onload = function() {
+        $('.trigger-wrap').on("click", function() {
+          if ($(".menu-icon").hasClass("open")) {
+            $(".menu-icon").removeClass("open");
+          } else {
+            $(".menu-icon").addClass('open');
+          }
+        });
+      }
+    </script>
+    
+    <!-- Optional JavaScript --> 
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+
+  </body> 
+</html>

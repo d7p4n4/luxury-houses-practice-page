@@ -60,7 +60,71 @@
         background: rgb(55,64,71);
         padding: 0 0 2rem;
       }
+            
+      .logo {
+        text-transform: uppercase;
+        color: rgb(157,157,157);
+        font-size: 2rem;
+        font-family: iceland;
+      }
+            
+      .logo-art {
+        position: relative;
+        display: inline-block;
+        width: .2rem;
+        height: 2rem;
+        background: rgb(157,157,157);
+        overflow: visible;
+        margin: 0 .5rem;
+      }
       
+      .logo-art::before,
+      .logo-art::after {
+        content: '';
+        position: absolute;
+        width: .2rem;
+        height: 1.5rem;
+        background: rgb(157,157,157);
+        transform: translateX(-175%);
+        z-index: 2;
+        bottom: 0;
+      }
+      
+      .logo-art::after {
+        transform: translateX(175%);
+      }
+      @media (min-width: 768px) {
+        
+        .logo {
+          font-size: 2.5rem;
+        }
+        
+        .logo-art {
+          height: 2.5rem;
+        }
+        
+        .logo-art::after,
+        .logo-art::before {
+          height: 1.75rem;
+        }
+      }
+      
+      @media (min-width: 1200px) {
+        
+        .logo {
+          font-size: 2.5rem;
+        }
+        
+        .logo-art {
+          height: 2.5rem;
+        }
+        
+        .logo-art::after,
+        .logo-art::before {
+          height: 1.75rem;
+        }
+      }
+
       .menu-icon {
         position: absolute;
         width: 4rem;
@@ -700,7 +764,7 @@
             </svg>
           </div>
           <div class="col-12">
-            <p class="nav-btn sec">About</p>
+            <a class="nav-btn" href="about.html"><p class="nav-btn sec">About</p></a>
             <svg class="bottom-svg" height="2rem" width="100%">
               <line class="border-bottom" x1="15%" x2="85%" y="100%" stroke-width=".3rem" stroke="white"></line>
             </svg>
@@ -728,8 +792,17 @@
           <div class="menu-trigger"></div>
         </div>
       </div>
+
+      <div class="row p-0 m-0 ml-3 mt-3 ml-md-0 mt-md-0" style="background: white;">
+        <div class="col-10 col-md-8 col-xl-4 p-0 m-0">
+          <h3 class="logo">RJ <div class="logo-art"></div> INVESTMENTS</h3>
+        </div>
+        <div class="col-10 p-0 m-0">
+          <div class="hr mt-2"></div>
+        </div>
+      </div>
     
-    <div class="wrapper-1">
+    <div class="wrapper-1 mt-5">
       <div class="row justify-content-center mt-5 ml-4 mr-5 pr-4 m-md-0 p-md-0 pr-md-5 pr-lg-0">
       <div class="col-12 col-lg-7 my-auto p-0 p-md-3">
         <h3 class="sec-title mb-2">the portfolio</h3>
@@ -763,7 +836,7 @@
             <div class="rate">
               <p class="rate-num">4,5</p>
             </div>
-            <div class="btn-more">more</div>
+            <a href="living-room01.html"><div class="btn-more">more</div></a>
             <div class="row justify-content-center stars-row">
               <div class="col-6">
                 <img class="img-fluid" src="assets/half-star.png" alt="">
@@ -775,7 +848,7 @@
             <div class="rate">
               <p class="rate-num">4,8</p>
             </div>
-            <div class="btn-more">more</div>
+            <a href="living-room02.html"><div class="btn-more">more</div></a>
             <div class="row justify-content-center stars-row">
               <div class="col-6">
                 <img class="img-fluid" src="assets/five-star.png" alt="">
@@ -787,7 +860,7 @@
             <div class="rate">
               <p class="rate-num">4,3</p>
             </div>
-            <div class="btn-more">more</div>
+            <a href="living-room03.html"><div class="btn-more">more</div></a>
             <div class="row justify-content-center stars-row">
               <div class="col-6">
                 <img class="img-fluid" src="assets/half-star.png" alt="">
@@ -799,7 +872,7 @@
             <div class="rate">
               <p class="rate-num">5</p>
             </div>
-            <div class="btn-more">more</div>
+            <a href="living-room04.html"><div class="btn-more">more</div></a>
             <div class="row justify-content-center stars-row">
               <div class="col-6">
                 <img class="img-fluid" src="assets/five-star.png" alt="">
@@ -811,7 +884,7 @@
             <div class="rate">
               <p class="rate-num">4,9</p>
             </div>
-            <div class="btn-more">more</div>
+            <a href="living-room05.html"><div class="btn-more">more</div></a>
             <div class="row justify-content-center stars-row">
               <div class="col-6">
                 <img class="img-fluid" src="assets/five-star.png" alt="">
@@ -823,7 +896,7 @@
             <div class="rate">
               <p class="rate-num">5</p>
             </div>
-            <div class="btn-more">more</div>
+            <a href="living-room06.html"><div class="btn-more">more</div></a>
             <div class="row justify-content-center stars-row">
               <div class="col-6">
                 <img class="img-fluid" src="assets/five-star.png" alt="">
@@ -835,7 +908,7 @@
             <div class="rate">
               <p class="rate-num">5</p>
             </div>
-            <div class="btn-more">more</div>
+            <a href="living-room07.html"><div class="btn-more">more</div></a>
             <div class="row justify-content-center stars-row">
               <div class="col-6">
                 <img class="img-fluid" src="assets/five-star.png" alt="">
@@ -847,7 +920,7 @@
             <div class="rate">
               <p class="rate-num">4,7</p>
             </div>
-            <div class="btn-more">more</div>
+            <a href="living-room08.html"><div class="btn-more">more</div></a>
             <div class="row justify-content-center stars-row">
               <div class="col-6">
                 <img class="img-fluid" src="assets/half-star.png" alt="">

@@ -111,7 +111,7 @@
         background: rgb(50,52,69);
         top: 0;
         right: 0;
-        z-index: 101;
+        z-index: 1001;
         overflow: hidden;
       }
       
@@ -891,7 +891,7 @@
             </svg>
           </div>
           <div class="col-12">
-            <p class="nav-btn sec">About</p>
+            <a class="nav-btn" href="about.html"><p class="nav-btn sec">About</p></a>
             <svg class="bottom-svg" height="2rem" width="100%">
               <line class="border-bottom" x1="15%" x2="85%" y="100%" stroke-width=".3rem" stroke="white"></line>
             </svg>
@@ -985,7 +985,7 @@
       
       <div class="white-wrap">
         <div class="portfolio">
-          <div class="portfolio-wrap">
+          <div class="portfolio-wrap about-moving">
             <div class="row justify-content-start pl-0 ml-0 pl-md-4 ml-md-4 pl-lg-5 ml-lg-5">
               <div class="col-10 col-lg-8 pl-0">
                 <h3 class="sec-title mb-3">about us</h3>
@@ -1141,11 +1141,19 @@
           $(".down-arr-wrap-fourth").addClass("hover");
         })
         
+        $(".circle-sec").on("click", function() {
+          $(".about-moving").addClass("open");
+          $(".wrapper-side").addClass("open");
+          setTimeout(function() {
+            window.location.href = "https://d7p4n4.github.io/luxury-houses-practice-page/about.html";
+          }, 1300);
+        });
+        
         $(".circle-third").on("click", function() {
           $(".portfolio-moving").addClass("open");
           $(".wrapper-side").addClass("open");
           setTimeout(function() {
-            window.location.href = "file:///D:/weblap/Brackets/luxury-houses-practice-page/portfolio.html";
+            window.location.href = "https://d7p4n4.github.io/luxury-houses-practice-page/portfolio.html";
           }, 1300);
         });
         
@@ -1153,7 +1161,7 @@
           $(".projects-moving").addClass("open");
           $(".wrapper-side").addClass("open");
           setTimeout(function() {
-            window.location.href = "file:///D:/weblap/Brackets/luxury-houses-practice-page/projects.html";
+            window.location.href = "https://d7p4n4.github.io/luxury-houses-practice-page/projects.html";
           }, 1300);
         });
 /*

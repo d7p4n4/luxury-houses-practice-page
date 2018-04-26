@@ -334,127 +334,89 @@
           font-size: 1.25rem;
         }
       }
-      
-      .white-wrap {
-        position: relative;
-        padding: 2rem 1rem 0;
-        background: white;
-        margin-top: 4rem;
-      }
-      
-      .contact-text {
-        font-size: 1.25rem;
-        text-transform: uppercase;
-        color: rgb(50,52,69);
+
+      .sec-title {
         font-family: "roboto condensed";
+        color: white;
+        font-size: 1.75rem;
+        text-transform: uppercase;
         letter-spacing: .1rem;
+        transform: scaleY(.75);
         font-weight: 600;
-      }
-      
-      .share {
-        text-align: center;
-        font-size: 1.5rem;
-        color: rgb(50,52,69);
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
-        transform-origin: center center;
-        transition: all .3s ease;
-      }
-      
-      .share:hover {
-        transform: scale(1.15) translateX(-50%);
-        cursor: pointer;
-      }
-      
-      .stroke {
-        position: absolute;
-        width: 35%;
-        height: .5rem;
-        bottom: 5rem;
-        background: rgb(220,220,220);
-      }
-      
-      .stroke-left {
-        left: calc(0%);
-      }
-      
-      .stroke-right {
-        right: calc(0%);
+        transition: opacity .5s ease;
       }
 
       .text {
         font-family: "roboto slab";
         color: rgba(150,150,150,.7);
         line-height: 1rem;
-        font-size: .85rem;
-      }    
+        transition: opacity .5s ease;
+      }      
       
-      .contact-logo {
-        max-height: 10rem;
+      @media (min-width: 1200px) {
+        .text {
+          line-height: 1.4rem;
+        }
+      }
+      
+      .features {
+        font-family: "roboto condensed";
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 2.5rem;
+        letter-spacing: .5rem;
+        color: rgb(203,157,129);
         position: relative;
-        left: 50%;
-        transform: translateX(-50%) translateY(.2rem);
+        text-align: center;
+        transform: scaleY(.75);
       }
       
-      .end {
-        text-align: right;
+      .features-text {
+        text-align: center;
+        text-transform: capitalize;
       }
       
-      .little-text-wrap {
-        width: 100%;
-      }
-      
-      .little-text {
-        font-size: .65rem;
+      .small-title {
+        font-size: 1.25rem;
         text-align: center;
       }
       
-      @media (min-width: 528px) {
-        .white-wrap {
-          padding: 2rem 2.5rem 0;
-        }
-        
-        .stroke {
-          width: 37.5%;
-        }
+      .small-text {
+        text-align: center;
       }
       
-      @media (min-width: 1200px) {
-        .white-wrap {
-          padding: 3rem 5rem 0;
-        }
-        
-        .stroke {
-          width: 42.5%;
-        }
-        
-        .text {
-          font-size: 1rem;
-        }
-        
-        .little-text {
-          font-size: .65rem;
-        }
+      .side-border {
+        border-bottom: .25rem solid rgba(150,150,150,.7);
+        padding-bottom: 1rem;
       }
       
-      @media (min-width: 1800px) {  
-        .contact-logo {
-          max-height: 8rem;
+      @media (min-width: 768px) {
+        .side-border {
+          border-right: .25rem solid rgba(150,150,150,.7);
+          border-bottom: none;
         }
       }
-      
+
       .hr {
         width: 100%;
         height: .1rem;
         background: rgba(150,150,150,.7);
+        margin: 2rem 0 1rem;
       }
 
+      .footer-text {
+        font-family: "roboto slab";
+        font-size: .75rem;
+        color: rgba(150,150,150,.7);
+        text-align: center;
+        text-transform: capitalize;
+        line-height: 1rem;
+      }
+       
       .row {
         margin-left: 0;
         margin-right: 0;
       }
-      
     </style>
   </head>
   <body>
@@ -512,54 +474,75 @@
         </div>
       </div>
     
-    <div class="white-wrap">
-      <div class="row">
-        <div class="col-12 col-md-6">
-          <p class="contact-text mb-3">07734 067 485</p>
-          <p class="contact-text">info@rj-investments.co.uk</p>
-        </div>
-        <div class="col-12 col-md-6">
-          <div class="row justify-content-end mt-4 mb-4 mb-md-0 mt-md-0">
-            <div class="col-3 col-md-1">
-              <i class="fab fa-facebook-square share"></i>
-            </div>
-            <div class="col-3 col-md-1">
-              <i class="fab fa-instagram share"></i>
-            </div>
-            <div class="col-3 col-md-1">
-              <i class="fab fa-twitter share"></i>
-            </div>
-            <div class="col-3 col-md-1">
-              <i class="fab fa-linkedin share"></i>
-            </div>
+    <div class="row mt-5 justify-content-center">
+      <div class="col-12 col-md-9">
+        <h3 class="sec-title">About our work</h3>
+        <p class="text">Lorem ipsum dolor sit amet, ne inani facete vix. Democritum adversarium consequuntur cu per, mucius scriptorem ad sit, ne oporteat honestatis quo. Eos ex clita recusabo persequeris, id errem temporibus eos. Usu feugait democritum ei. Vero mentitum has ei. In pro audiam ornatus, nec alia fastidii laboramus ea.<br><br>
+Cu his putent mandamus comprehensam. Ea qui cetero perpetua. Eam in sale signiferumque, nullam inimicus reprimique vim ei. Vix hinc movet nostrum in. Aeque senserit ne vis, ex discere blandit mel.</p>
+      </div>
+      <div class="col-9 col-sm-6 col-md-3 align-self-center mt-3 mt-md-0">
+        <img class="img-fluid" src="assets/RJ.jpg" alt="">
+      </div>
+    </div>
+    <div class="row mt-3 mb-5">
+      <div class="col-12">
+        <h3 class="sec-title">First step to become a big company</h3>
+        <p class="text">Ad sea sonet vidisse, eos wisi nostrud ei. Quo nemore sententiae ad. Nobis latine habemus qui an. Prompta meliore expetenda at his, ex meis vidit quo, officiis appellantur vis ex.<br><br>
+
+Est propriae rationibus id, quidam eleifend laboramus mei ad. Mea ea enim delicatissimi, vim periculis pertinacia ne. Vim omnis principes instructior an. Te sea purto elit veniam, pro ad libris vituperatoribus, vim omnis laoreet an. Qui tota soleat te, duo fabellas intellegat at, has ut adipisci interesset.</p>
+      </div>
+    </div>
+    
+    <div class="row justify-content-center mt-5">
+      <div class="col-12">
+        <h3 class="features">novelties</h3>
+        <p class="text features-text">coming soon</p>
+      </div>
+    </div>
+    
+    <div class="row mt-4 justify-content-center">
+      <div class="col-12 col-sm-10 col-md-4 side-border mt-3 mt-md-0">
+        <div class="row justify-content-center">
+          <div class="col-3 col-md-4 col-lg-3 mb-4">
+            <img src="assets/png02.png" alt="" class="img-fluid">
+          </div>
+          <div class="col-12">
+            <h6 class="sec-title small-title mb-2">investments options</h6>
+            <p class="text small-text">Get More</p>
           </div>
         </div>
       </div>
-      <div class="stroke-left stroke"></div>
-      <div class="stroke-right stroke"></div>
-      <div class="row mb-0 pb-0 mt-4">
-        <div class="col-5 mb-0 pb-0 align-self-end mb-4">
-          <p class="text">&copy; 2018 RJ Investments</p>
+      <div class="col-12 col-sm-10 col-md-4 side-border mt-3 mt-md-0">
+        <div class="row justify-content-center">
+          <div class="col-3 col-md-4 col-lg-3 mb-4">
+            <img src="assets/png01.png" alt="" class="img-fluid">
+          </div>
+          <div class="col-12">
+            <h6 class="sec-title small-title mb-2">accommodation</h6>
+            <p class="text small-text">Future Tenamts</p>
+          </div>
         </div>
-        <div class="col-2 mb-0 pb-0 p-0 m-0 pl-sm-2 pr-sm-2 pl-md-3 pr-md-3 pl-lg-4 pr-lg-4">
-          <img class="img-fluid contact-logo pl-xl-3 pr-xl-3" src="assets/contact-logo.png" alt="">
-        </div>
-        <div class="col-5 mb-0 pb-0 align-self-end mb-4">
-          <p class="text end">Website by D7P4N4</p>
+      </div>
+      <div class="col-12 col-sm-10 col-md-4 mt-3 mt-md-0">
+        <div class="row justify-content-center">
+          <div class="col-3 col-md-4 col-lg-3 mb-4">
+            <img src="assets/png03.png" alt="" class="img-fluid">
+          </div>
+          <div class="col-12">
+            <h6 class="sec-title small-title mb-2">land development</h6>
+            <p class="text small-text">Meet Pandora Hotels</p>
+          </div>
         </div>
       </div>
     </div>
     
-    <div class="small-text-wrap">
-      <div class="row justify-content-center mt-4 mt-md-5">
-        <div class="col-12 col-md-10 col-lg-8">
-          <p class="little-text text">
-Ex vix indoctum consectetuer, dolor tollit convenire ex sit, inermis reformidans vim ea. Possim vivendum est cu. Ad pri ignota volumus salutandi, utroque oporteat ne mei. Usu eu detraxit facilisis democritum. Mei id tation tempor oportere, vocent eripuit an quo. Corpora elaboraret honestatis usu in, pro dicunt labores ceteros ea.
-
-Affert detracto vix an. In usu scripta placerat persecuti. Ex gloriatur vulputate sed, an his decore interesset. Mea ea erroribus disputando. Usu viderer offendit recusabo te, tale ornatus gloriatur quo an. Duo an lorem integre legimus. Nec suas everti periculis ei, soleat maiestatis nec at, qui impetus lobortis an.</p>
+      <div class="row justify-content-center footer">
+        <div class="col-12">
+          <div class="hr"></div>
+          <p class="footer-text">Copyright &copy; 2018- <br>All rights reserved.</p>
         </div>
       </div>
-    </div>
+    
       
     <script>
       window.onload = function() {

@@ -58,7 +58,7 @@
         width: 100%;
         height: auto;
         min-height: 100vh;
-        background: rgb(55,64,71);
+        background: rgb(210,210,210);
         padding: 2rem 1rem 2rem;
       }
             
@@ -337,50 +337,41 @@
       
       .white-wrap {
         position: relative;
-        padding: 2rem 1rem 0;
+        padding: 2rem 1rem;
         background: white;
         margin-top: 4rem;
+        width: 100%;
+        top: -3rem;
       }
       
       .contact-text {
-        font-size: 1.25rem;
+        font-size: 2rem;
         text-transform: uppercase;
         color: rgb(50,52,69);
         font-family: "roboto condensed";
         letter-spacing: .1rem;
         font-weight: 600;
+        transform: scaleY(.75);
       }
       
-      .share {
-        text-align: center;
-        font-size: 1.5rem;
-        color: rgb(50,52,69);
+      .sec-title {
+        font-size: 1.75rem;
+      }
+      
+      .features-img {
         position: relative;
+        top: 3rem;
+        width: 100%;
+        max-width: 20rem;
         left: 50%;
         transform: translateX(-50%);
-        transform-origin: center center;
-        transition: all .3s ease;
       }
       
-      .share:hover {
-        transform: scale(1.15) translateX(-50%);
-        cursor: pointer;
-      }
-      
-      .stroke {
-        position: absolute;
-        width: 35%;
-        height: .5rem;
-        bottom: 5rem;
-        background: rgb(220,220,220);
-      }
-      
-      .stroke-left {
-        left: calc(0%);
-      }
-      
-      .stroke-right {
-        right: calc(0%);
+      @media (min-width: 768px) {
+        .features-img {
+          left: 100%;
+          transform: translateX(-100%);
+        }
       }
 
       .text {
@@ -390,57 +381,29 @@
         font-size: .85rem;
       }    
       
-      .contact-logo {
-        max-height: 10rem;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%) translateY(.2rem);
+      li {
+        margin-top: 1rem;
       }
       
-      .end {
-        text-align: right;
-      }
-      
-      .little-text-wrap {
-        width: 100%;
-      }
-      
-      .little-text {
-        font-size: .65rem;
-        text-align: center;
+      ul {
+        list-style: url(assets/list-style.png);
+        list-style-position: outside;
+        margin-left: 1.5rem
       }
       
       @media (min-width: 528px) {
         .white-wrap {
-          padding: 2rem 2.5rem 0;
-        }
-        
-        .stroke {
-          width: 37.5%;
+          padding: 3rem 2.5rem;
         }
       }
       
       @media (min-width: 1200px) {
         .white-wrap {
-          padding: 3rem 5rem 0;
-        }
-        
-        .stroke {
-          width: 42.5%;
+          padding: 4rem 3rem;
         }
         
         .text {
           font-size: 1rem;
-        }
-        
-        .little-text {
-          font-size: .65rem;
-        }
-      }
-      
-      @media (min-width: 1800px) {  
-        .contact-logo {
-          max-height: 8rem;
         }
       }
       
@@ -448,6 +411,15 @@
         width: 100%;
         height: .1rem;
         background: rgba(150,150,150,.7);
+      }
+      
+      .footer-text {
+        font-family: "roboto slab";
+        font-size: .75rem;
+        color: rgba(150,150,150,.7);
+        text-align: center;
+        text-transform: capitalize;
+        line-height: 1rem;
       }
 
       .row {
@@ -512,55 +484,42 @@
         </div>
       </div>
     
-    <div class="white-wrap">
-      <div class="row">
-        <div class="col-12 col-md-6">
-          <p class="contact-text mb-3">07734 067 485</p>
-          <p class="contact-text">info@rj-investments.co.uk</p>
-        </div>
-        <div class="col-12 col-md-6">
-          <div class="row justify-content-end mt-4 mb-4 mb-md-0 mt-md-0">
-            <div class="col-3 col-md-1">
-              <i class="fab fa-facebook-square share"></i>
-            </div>
-            <div class="col-3 col-md-1">
-              <i class="fab fa-instagram share"></i>
-            </div>
-            <div class="col-3 col-md-1">
-              <i class="fab fa-twitter share"></i>
-            </div>
-            <div class="col-3 col-md-1">
-              <i class="fab fa-linkedin share"></i>
-            </div>
-          </div>
-        </div>
+    <div class="row justify-content-center mt-5 mb-0 pb-0">
+      <div class="col-12 col-md-5 col-lg-3 mb-0 pb-0">
+        <h3 class="contact-text">property details</h3>
       </div>
-      <div class="stroke-left stroke"></div>
-      <div class="stroke-right stroke"></div>
-      <div class="row mb-0 pb-0 mt-4">
-        <div class="col-5 mb-0 pb-0 align-self-end mb-4">
-          <p class="text">&copy; 2018 RJ Investments</p>
-        </div>
-        <div class="col-2 mb-0 pb-0 p-0 m-0 pl-sm-2 pr-sm-2 pl-md-3 pr-md-3 pl-lg-4 pr-lg-4">
-          <img class="img-fluid contact-logo pl-xl-3 pr-xl-3" src="assets/contact-logo.png" alt="">
-        </div>
-        <div class="col-5 mb-0 pb-0 align-self-end mb-4">
-          <p class="text end">Website by D7P4N4</p>
-        </div>
-      </div>
+      <div class="col-md-7 col-lg-5 empty-col"></div>
     </div>
     
-    <div class="small-text-wrap">
-      <div class="row justify-content-center mt-4 mt-md-5">
-        <div class="col-12 col-md-10 col-lg-8">
-          <p class="little-text text">
-Ex vix indoctum consectetuer, dolor tollit convenire ex sit, inermis reformidans vim ea. Possim vivendum est cu. Ad pri ignota volumus salutandi, utroque oporteat ne mei. Usu eu detraxit facilisis democritum. Mei id tation tempor oportere, vocent eripuit an quo. Corpora elaboraret honestatis usu in, pro dicunt labores ceteros ea.
-
-Affert detracto vix an. In usu scripta placerat persecuti. Ex gloriatur vulputate sed, an his decore interesset. Mea ea erroribus disputando. Usu viderer offendit recusabo te, tale ornatus gloriatur quo an. Duo an lorem integre legimus. Nec suas everti periculis ei, soleat maiestatis nec at, qui impetus lobortis an.</p>
+    <div class="row justify-content-center">
+      <div class="col-10 col-md-5 col-lg-3 pr-md-0 mr-md-0">
+        <img class="img-fluid features-img pt-3" src="assets/living03.jpg" alt="">
+      </div>
+      <div class="col-11 col-sm-9 col-md-7 col-lg-5 pl-md-0 ml-md-0">
+        <div class="white-wrap">
+          <h3 class="contact-text sec-title pb-3">features</h3>
+          <ul>
+            <li class="text">Ad sea sonet vidisse</li>
+            <li class="text">Cu has ridens nostro tacimates, eam ea paulo sanctus</li>
+            <li class="text">Mei eu quem impedit</li>
+            <li class="text">Sed veniam nusquam invidunt te</li>
+            <li class="text">Feugait tractatos pri ne</li>
+            <li class="text">Prompta meliore expetenda at his</li>
+            <li class="text">Laudem mediocrem definitiones nam ne</li>
+            <li class="text">Nonumy vituperatoribus ei his, ius at augue possim sensibus</li>
+            <li class="text">Labitur adolescens expetendis ad vim</li>
+          </ul>
         </div>
       </div>
     </div>
-      
+
+      <div class="row justify-content-center footer">
+        <div class="col-12">
+          <div class="hr"></div>
+          <p class="footer-text mt-3">Copyright &copy; 2018- <br>All rights reserved.</p>
+        </div>
+      </div>    
+
     <script>
       window.onload = function() {
         $('.trigger-wrap').on("click", function() {
